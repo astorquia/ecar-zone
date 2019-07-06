@@ -1,0 +1,70 @@
+body{
+	margin: 1em 3em;
+}
+
+header{
+	background-color: yellow;
+	display: flex;
+	flex-flow: row nowrap;
+
+	background-image: url(../chargemap.jpg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: 300px 300px;
+}
+
+header>h1{
+	flex: 1 1 0;
+	text-align: center;
+	padding-bottom: 3em;
+}
+
+section, footer{
+	margin-top: 4em;
+}
+
+footer{
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+}
+
+footer>aside{
+	flex:1 1 0;
+}
+
+footer>aside>ul{
+	list-style-type: none;
+	display: flex;
+}
+
+footer>aside>ul>li>a>img{
+	width: 100px;
+	height: 100px;
+}
+
+footer>address{
+	flex:1 1 0;
+	text-align: center;
+}
+
+footer>p{
+	flex:1 1 0;
+	text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
