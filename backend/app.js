@@ -18,20 +18,6 @@ app.get('/valoraciones', function (req, res) {
   });
 });
 
-app.get('/estaciones', function (req, res) {
-  connection.query('SELECT * FROM `estacion`', function (error, results, fields) {
-    if (error) throw error;
-    res.send(results);
-  });
-});
-
-app.get('/imagenes', function (req, res) {
-  connection.query('SELECT * FROM `imagen`', function (error, results, fields) {
-    if (error) throw error;
-    res.send(results);
-  });
-});
-
 app.get('/', function (req, res) {  //   /  <<<  es un endpoint
   res.send('Hello er!');
 });
