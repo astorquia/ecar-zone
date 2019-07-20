@@ -1,23 +1,35 @@
 const express = require('express'); // Importar la libreria express
+const mysql = require('mysql'); // Importa la libreria mysql de node_modules
+// hemos cambiado var por const 
 const app = express(); // Creamos una aplicacion express
 
-// var, let, const
+const connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '',
+  database : 'ecarzone'
+});
+connection.connect();
 
-//  METODO DE JAVASCRIPT  "SPLIT"   que separa un String y te crea un Array
-//  EL METODO INVERSO DE  "SPLIT"   
-
-app.get('/pruebas', function (req, res) {  //   /usuarios  <<<  es un endpoint
-    const misDatos = ["hola", "adios", "No"];
-    res.send(misDatos.join('*'));
+app.get('/valoraciones', function (req, res) {
+  connection.query('SELECT * FROM `valoracion`', function (error, results, fields) {
+    if (error) throw error;
+    res.send(results);
+  });
 });
 
-app.get('/empresas', function (req, res) {  //   /usuarios  <<<  es un endpoint
-    const misDatos = [44, 55, 77];
-    res.send(misDatos);
+app.get('/estaciones', function (req, res) {
+  connection.query('SELECT * FROM `estacion`', function (error, results, fields) {
+    if (error) throw error;
+    res.send(results);
+  });
 });
 
-app.get('/usuarios', function (req, res) {  //   /usuarios  <<<  es un endpoint
-  res.send('paco');
+app.get('/imagenes', function (req, res) {
+  connection.query('SELECT * FROM `imagen`', function (error, results, fields) {
+    if (error) throw error;
+    res.send(results);
+  });
 });
 
 app.get('/', function (req, res) {  //   /  <<<  es un endpoint
