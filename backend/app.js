@@ -2,6 +2,9 @@ const express = require('express'); // Importar la libreria express
 const mysql = require('mysql'); // Importa la libreria mysql de node_modules
 // hemos cambiado var por const 
 const app = express(); // Creamos una aplicacion express
+const cors = require('cors');
+app.use(cors());
+app.options('*', cors());
 
 const connection = mysql.createConnection({
   host     : 'localhost',
